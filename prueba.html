@@ -26,7 +26,7 @@
             height: auto;
         }
         .cta-button {
-            display: block;
+            display: none; /* Ocultamos el botón */
             background-color: #4CAF50;
             color: #fff;
             text-align: center;
@@ -38,36 +38,32 @@
 </head>
 <body>
 <div class="container">
-    <div class="video-container">
-        <a href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount%2Fsummary&state=" id="enlace-superior" target="_blank"></a><!-- Reemplaza "tu-enlace" con la URL de tu enlace -->
-        <video controls id="video" playsinline>
-            <source src="https://anontransfer.com/uploads/hmq6ElFTBA/s2x7HomH.mp4" type="video/mp4"> <!-- Reemplaza "tu-video.mp4" con la URL de tu video -->
-            Tu navegador no soporta la etiqueta de video.
-        </video>
-    </div>
-
+    <video id="landing-video" controls autoplay playsinline>
+        <source src="https://cdn.videy.co/gFYTzugm.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
     <script>
-        var video = document.getElementById('video');
-        var enlaceSuperior = document.getElementById('enlace-superior');
-        var clicks = 0;
+        var video = document.getElementById('landing-video');
+        var directLinkOpened = false;
+        var lastDirectLinkTime = null;
 
-        // Controlar el comportamiento del video cuando se hace clic
-        video.addEventListener('click', function() {
-            clicks++;
-            if (clicks === 1) {
-                // Primer clic, abrir enlace
-                window.open(enlaceSuperior.href, '_blank');
-            } else if (clicks === 2) {
-                // Segundo clic, reproducir video y ocultar enlace
-                this.play();
-                enlaceSuperior.style.display = 'none';
+        // Evento para abrir el enlace cuando el usuario interactúa con el video
+        video.addEventListener('play', function() {
+            if (!directLinkOpened || (Date.now() - lastDirectLinkTime) > (2 * 60 * 1000)) {
+                openDirectLink();
             }
         });
-    </script>
-</body>
-</html>
 
-<script id="_wausim">var _wau = _wau || []; _wau.push(["dynamic", "b0sjm4ilma", "sim", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
+        // Función para abrir el enlace directo
+        function openDirectLink() {
+            // Cambia "tu-enlace" con la URL de tu enlace
+            var directLink = "https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount%2Fsummary&state=";
+            // Abre el enlace en la misma pestaña
+            window.location.href = directLink;
+            directLinkOpened = true;
+            lastDirectLinkTime = Date.now();
+        }
+    </script>
 </div>
 
 </body>
