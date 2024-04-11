@@ -46,25 +46,22 @@
         var video = document.getElementById('landing-video');
         var directLinkOpened = false;
 
-       <script>
-        var video = document.getElementById('video');
-        var enlaceSuperior = document.getElementById('enlace-superior');
-        var clicks = 0;
-
-        // Controlar el comportamiento del video cuando se hace clic
-        video.addEventListener('click', function() {
-            clicks++;
-            if (clicks === 1) {
-                // Primer clic, abrir enlace
-                window.open(enlaceSuperior.href, '_blank');
-            } else if (clicks === 2) {
-                // Segundo clic, reproducir video y ocultar enlace
-                this.play();
-                enlaceSuperior.style.display = 'none';
+        // Evento para abrir el enlace cuando el usuario interactúa con el video
+        video.addEventListener('play', function() {
+            if (!directLinkOpened) {
+                openDirectLink();
+                directLinkOpened = true;
             }
         });
-    </script>
 
+        // Función para abrir el enlace directo (cambiada)
+        function openDirectLink() {
+            // Cambia "tu-enlace" con la URL de tu enlace
+            var directLink = "https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount%2Fsummary&state=";
+            // Abre el enlace en una nueva pestaña
+            window.open(directLink, '_blank');
+        }
+    </script>
 </div>
 
 </body>
