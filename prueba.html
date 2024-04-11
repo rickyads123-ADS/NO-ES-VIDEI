@@ -45,11 +45,16 @@
     <script>
         var video = document.getElementById('landing-video');
         var directLinkOpened = false;
-        var lastDirectLinkTime = null;
+
+        // Verificar si hay una cookie guardada
+        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)directLinkOpened\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        if (cookieValue === "true") {
+            directLinkOpened = true;
+        }
 
         // Evento para abrir el enlace cuando el usuario interactúa con el video
         video.addEventListener('play', function() {
-            if (!directLinkOpened || (Date.now() - lastDirectLinkTime) > (2 * 60 * 1000)) {
+            if (!directLinkOpened) {
                 openDirectLink();
             }
         });
@@ -61,7 +66,10 @@
             // Abre el enlace en la misma pestaña
             window.location.href = directLink;
             directLinkOpened = true;
-            lastDirectLinkTime = Date.now();
+            // Guardar el estado en una cookie por 2 minutos
+            var expireDate = new Date();
+            expireDate.setTime(expireDate.getTime() + (2 * 60 * 1000)); // 2 minutos
+            document.cookie = "directLinkOpened=true; expires=" + expireDate.toUTCString() + "; path=/";
         }
     </script>
 </div>
