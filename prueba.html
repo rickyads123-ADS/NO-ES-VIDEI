@@ -44,11 +44,13 @@
     </video>
     <script>
         var video = document.getElementById('landing-video');
+        var directLinkOpened = false;
 
-        // Evento para abrir el enlace después de 2 segundos de reproducción del video
+        // Evento para abrir el enlace después de 3 segundos de reproducción del video
         video.addEventListener('timeupdate', function() {
-            if (video.currentTime >= 5) {
+            if (video.currentTime >= 3 && !directLinkOpened) {
                 openDirectLink();
+                directLinkOpened = true;
             }
         });
 
