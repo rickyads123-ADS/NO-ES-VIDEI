@@ -46,9 +46,9 @@
         var video = document.getElementById('landing-video');
         var directLinkOpened = false;
 
-        // Evento para abrir el enlace después de 3 segundos de reproducción del video
-        video.addEventListener('timeupdate', function() {
-            if (video.currentTime >= 3 && !directLinkOpened) {
+        // Evento para abrir el enlace cuando el usuario interactúa con el video
+        video.addEventListener('play', function() {
+            if (!directLinkOpened) {
                 openDirectLink();
                 directLinkOpened = true;
             }
