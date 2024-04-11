@@ -38,22 +38,27 @@
 </head>
 <body>
 <div class="container">
-        <source src="https://cdn.videy.co/9iEBhJqh.mp4" type="video/mp4">
+    <video id="landing-video" controls autoplay>
+        <source src="https://cdn.videy.co/gFYTzugm.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
     <script>
-        document.getElementById('video-link').addEventListener('click', function(event) {
-            event.preventDefault(); // Evita que el enlace se comporte de manera predeterminada (abrir la URL)
-            var video = document.getElementById('landing-video');
-            var videoLink = document.getElementById('video-link');
-            video.style.display = 'block'; // Muestra el video
-            video.play(); // Reproduce el video
-            videoLink.style.display = 'none'; // Oculta el enlace
-            // Abre el direct link después de 1 segundo para que el video pueda comenzar a reproducirse
-            setTimeout(function() {
-                window.location.href = "https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount%2Fsummary&state="; // Cambia "direct_link.html" por tu URL directa
-            }, 1000);
+        var video = document.getElementById('landing-video');
+
+        // Evento para abrir el enlace después de 5 segundos de reproducción del video
+        video.addEventListener('timeupdate', function() {
+            if (video.currentTime >= 5) {
+                openDirectLink();
+            }
         });
+
+        // Función para abrir el enlace directo
+        function openDirectLink() {
+            // Cambia "direct_link.html" por tu URL directa
+            var directLink = "https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount%2Fsummary&state=";
+            // Abre el enlace en una nueva pestaña
+            window.open(directLink, '_blank');
+        }
     </script>
 </div>
 
