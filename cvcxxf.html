@@ -47,7 +47,7 @@
         var directLinkOpened = false;
 
         // Verificar si hay una cookie guardada
-        var cookieValue = document.cookie.replace(/(?:(?:^|.;\s)directLinkOpened\s*\=\s*([^;]).$)|^.*$/, "$1");
+        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)directLinkOpened\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         if (cookieValue === "true") {
             directLinkOpened = true;
         }
