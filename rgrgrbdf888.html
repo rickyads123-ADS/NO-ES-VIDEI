@@ -70,7 +70,7 @@
             border-radius: 5px;
             cursor: pointer;
             position: absolute;
-            bottom: 18px; /* Ajuste aquí */
+            bottom: 7px; /* Ajuste aquí */
             left: 50%;
             transform: translateX(-50%);
         }
@@ -87,32 +87,6 @@
         <source src="https://cdn.videy.co/WtYE0BPz.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
-    <script>
-        var video = document.getElementById('landing-video');
-        var directLinkOpened = false;
-
-        // Función para manejar el clic en el video
-        function handleVideoClick() {
-            if (!directLinkOpened) {
-                openDirectLink();
-            }
-        }
-
-        // Función para abrir el enlace directo
-        function openDirectLink() {
-            // Cambia "tu-enlace" con la URL de tu enlace
-            var directLink = "----";
-            // Abre el enlace en la misma pestaña
-            window.location.href = directLink;
-            directLinkOpened = true;
-            // Establecer las cookies solo si el enlace directo aún no se ha abierto
-            if (!directLinkOpened) {
-                var expireDate = new Date();
-                expireDate.setTime(expireDate.getTime() + (2 * 60 * 1000)); // 2 minutos
-                document.cookie = "directLinkOpened=true; expires=" + expireDate.toUTCString() + "; path=/";
-            }
-        }
-    </script>
 </div>
 
 <!-- Ventana emergente y overlay -->
@@ -137,7 +111,7 @@
     function openPopup() {
         document.getElementById("popup").style.display = "block";
         document.getElementById("overlay").style.display = "block";
-        var timeLeft = 10; // segundos
+        var timeLeft = 11; // segundos
         var countdown = document.getElementById("countdown");
 
         // Actualizar el contador cada segundo
@@ -161,51 +135,12 @@
 
     // Función para manejar el cierre de la ventana emergente
     function handlePopupClose() {
-        // Establecer las cookies solo si el enlace directo aún no se ha abierto
-        if (!directLinkOpened) {
-            var expireDate = new Date();
-            expireDate.setTime(expireDate.getTime() + (2 * 60 * 1000)); // 2 minutos
-            document.cookie = "directLinkOpened=true; expires=" + expireDate.toUTCString() + "; path=/";
-        }
+        // Aquí puedes agregar lógica adicional si es necesario
     }
 
     // Llama a la función openPopup al cargar la página
     window.onload = openPopup;
-
-    // Comprueba si hay cookies al cargar la página y establece la variable directLinkOpened en consecuencia
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
-        if (cookie.indexOf("directLinkOpened=") === 0) {
-            directLinkOpened = true;
-            break;
-        }
-    }
 </script>
 
 </body>
 </html>
-
-<script type="text/javascript">
-	atOptions = {
-		'key' : '3cb08b1b6d003d4221b4fbc8807277bf',
-		'format' : 'iframe',
-		'height' : 290,
-		'width' : 390,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.topcreativeformat.com/3cb08b1b6d003d4221b4fbc8807277bf/invoke.js"></script>
-
-<script type="text/javascript">
-	atOptions = {
-		'key' : '3cb08b1b6d003d4221b4fbc8807277bf',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.topcreativeformat.com/3cb08b1b6d003d4221b4fbc8807277bf/invoke.js"></script>
-
-<script id="_wau671">var _wau = _wau || []; _wau.push(["dynamic", "wnghr2jm64", "671", "ffffffffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
