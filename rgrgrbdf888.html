@@ -69,10 +69,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            position: absolute;
-            bottom: 7px; /* Ajuste aquí */
-            left: 50%;
-            transform: translateX(-50%);
         }
         #popupText {
             font-weight: bold;
@@ -94,15 +90,10 @@
     <div id="popupText">¡ESPERA LOS 10 SEGUNDOS!</div>
     <div id="popupText">¡NO TE VAYAS!</div>
 
-<script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
- <ins class="eas6a97888e2" data-zoneid="5281424"></ins> 
- <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
-
-
     <!-- Contador de tiempo -->
     <div id="countdown"></div>
     <!-- Botón para cerrar la ventana emergente después de 10 segundos -->
-    <button id="closeButton" style="display: none;" onclick="closePopup()">Cerrar Ventana</button>
+    <button id="closeButton" onclick="closePopup()">Cerrar Ventana</button>
 </div>
 <div id="overlay" class="overlay"></div>
 
@@ -111,7 +102,7 @@
     function openPopup() {
         document.getElementById("popup").style.display = "block";
         document.getElementById("overlay").style.display = "block";
-        var timeLeft = 11; // segundos
+        var timeLeft = 10; // segundos
         var countdown = document.getElementById("countdown");
 
         // Actualizar el contador cada segundo
@@ -129,8 +120,10 @@
 
     // Función para cerrar la ventana emergente
     function closePopup() {
-        document.getElementById("popup").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
+        var popup = document.getElementById("popup");
+        var overlay = document.getElementById("overlay");
+        popup.parentNode.removeChild(popup);
+        overlay.parentNode.removeChild(overlay);
     }
 
     // Función para manejar el cierre de la ventana emergente
@@ -144,3 +137,5 @@
 
 </body>
 </html>
+
+<script id="_waureb">var _wau = _wau || []; _wau.push(["dynamic", "xj2odjdq1l", "reb", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
