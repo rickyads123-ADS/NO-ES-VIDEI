@@ -63,6 +63,7 @@
             margin-top: 20px;
         }
         #closeButton {
+            display: none; /* Inicialmente oculto */
             background-color: #000000;
             color: white;
             padding: 15px 20px;
@@ -70,10 +71,9 @@
             border-radius: 5px;
             cursor: pointer;
             position: absolute;
-            bottom: -50px; /* Posición inicial debajo de la ventana emergente */
+            bottom: 20px; /* Posición inicial debajo de la ventana emergente */
             left: 50%;
             transform: translateX(-50%);
-            transition: bottom 0.5s ease; /* Animación de desplazamiento */
         }
         #popupText {
             font-weight: bold;
@@ -98,7 +98,6 @@
 <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
  <ins class="eas6a97888e2" data-zoneid="5281424"></ins> 
  <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
-
     
     <!-- Contador de tiempo -->
     <div id="countdown"></div>
@@ -122,8 +121,8 @@
             if (timeLeft <= 0) {
                 clearInterval(timer);
                 document.getElementById("countdown").style.display = "none";
-                // Muestra el botón "Cerrar Ventana" y desplázalo hacia arriba
-                document.getElementById("closeButton").style.bottom = "20px";
+                // Muestra el botón "Cerrar Ventana"
+                document.getElementById("closeButton").style.display = "block";
                 handlePopupClose(); // Manejar el cierre de la ventana emergente
             }
         }, 1000);
@@ -148,6 +147,4 @@
 
 </body>
 </html>
-
-
 <script id="_waureb">var _wau = _wau || []; _wau.push(["dynamic", "xj2odjdq1l", "reb", "b4a7d6ffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
