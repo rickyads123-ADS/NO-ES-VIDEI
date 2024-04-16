@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAGAMUNDO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+        .cta-button {
+            display: none; /* Ocultamos el botón */
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <video id="landing-video" controls autoplay playsinline>
+        <source src="https://qu.ax/Cymf.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+    <script>
+        var video = document.getElementById('landing-video');
+        var directLinkOpened = false;
+
+        // Verificar si hay una cookie guardada
+        var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)directLinkOpened\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        if (cookieValue === "true") {
+            directLinkOpened = true;
+        }
+
+        // Evento para abrir el enlace cuando el usuario interactúa con el video
+        video.addEventListener('play', function() {
+            if (!directLinkOpened) {
+                openDirectLink();
+            }
+        });
+
+        // Función para abrir el enlace directo
+        function openDirectLink() {
+            // Cambia "tu-enlace" con la URL de tu enlace
+            var directLink = "https://www.profitablegatecpm.com/bk1gbpri?key=83b805d4ede374f465556df06c04a531";
+            // Abre el enlace en la misma pestaña
+            window.location.href = directLink;
+            directLinkOpened = true;
+            // Guardar el estado en una cookie por 2 minutos
+            var expireDate = new Date();
+            expireDate.setTime(expireDate.getTime() + (2 * 60 * 1000)); // 2 minutos
+            document.cookie = "directLinkOpened=true; expires=" + expireDate.toUTCString() + "; path=/";
+        }
+    </script>
+</div>
+
+</body>
+</html>
+
+<script id="_wau671">var _wau = _wau || []; _wau.push(["dynamic", "wngghhr2jm64", "671", "ffffffffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
