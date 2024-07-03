@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -59,6 +59,7 @@
             color: #000;
             margin-top: 10px;
             font-weight: bold;
+            display: none; /* Inicialmente oculto */
         }
         .ad-container {
             margin-top: 20px;
@@ -90,6 +91,20 @@
     </div>
 
     <script>
+        // Función para verificar si el tráfico proviene de Facebook
+        function esDeFacebook() {
+            var referrer = document.referrer.toLowerCase();
+            return referrer.includes("facebook");
+        }
+
+        // Mostrar los textos solo si el tráfico es desde Facebook
+        if (esDeFacebook()) {
+            var instructionElements = document.querySelectorAll('.instruction');
+            instructionElements.forEach(function(element) {
+                element.style.display = 'block';
+            });
+        }
+
         // Tiempo de espera en milisegundos (30 segundos)
         var tiempoDeEspera = 30000;
         var tiempoIntervalo = 100; // Intervalo en milisegundos para actualizar el porcentaje
@@ -125,3 +140,4 @@
     </script>
 </body>
 </html>
+
