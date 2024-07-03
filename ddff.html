@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -67,6 +67,11 @@
             font-size: 18px;
             color: #000;
         }
+        .static-text {
+            margin-top: 20px;
+            color: red;
+            font-size: 18px; /* Puedes ajustar el tamaño de texto aquí */
+        }
     </style>
 </head>
 <body>
@@ -75,18 +80,18 @@
         <div class="loader-bar">
             <div class="loader-bar-fill"></div>
         </div>
-        <div class="percentage">0%</div>
+        <div class="percentage">0%</</div>
         <div class="message">Por favor espera mientras cargamos el video.</div>
-      <h1 class="text-animation">PARA COMPLETAR EL VIDEO</h1>
- <h1 class="text-animation">👇TOCA ESTA IMAGEN👇</h1>
+        <h1 class="static-text">PARA COMPLETAR EL VIDEO</h1>
+        <h1 class="static-text">👇TOCA ESTA IMAGEN👇</h1>
         <div class="ad-container">
             <div class="ad-banner">Anuncio aquí</div>
         </div>
     </div>
 
     <script>
-        // Tiempo de espera en milisegundos (7 segundos)
-        var tiempoDeEspera = 7000;
+        // Tiempo de espera en milisegundos (30 segundos)
+        var tiempoDeEspera = 30000;
         var tiempoIntervalo = 100; // Intervalo en milisegundos para actualizar el porcentaje
 
         // URL a la que se redirigirá después del tiempo especificado
