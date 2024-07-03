@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando...</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+
+    <script>
+        // Tiempo de espera en milisegundos (ejemplo: 3000ms = 3 segundos)
+        var tiempoDeEspera = 3000;
+
+        // URL a la que se redirigirá después del tiempo especificado
+        var urlRedireccion = "https://www.ejemplo.com";
+
+        setTimeout(function(){
+            window.location.href = urlRedireccion;
+        }, tiempoDeEspera);
+    </script>
+</body>
+</html>
