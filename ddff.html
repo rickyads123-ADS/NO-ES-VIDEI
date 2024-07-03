@@ -36,15 +36,21 @@
             margin-top: 10px;
             font-size: 18px;
         }
+        .loader-text {
+            font-size: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 <body>
     <div class="loader-container">
-        <h1>SUBIENDO EL VIDEO</h1>
+        <h1 class="loader-text">SUBIENDO EL VIDEO</h1>
         <div class="loader-bar">
             <div class="loader-bar-fill"></div>
         </div>
-        <div class="percentage">0%</</div>
+        <div class="percentage">0%</div>
     </div>
 
     <script>
@@ -83,3 +89,4 @@
     </script>
 </body>
 </html>
+
