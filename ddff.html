@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -36,17 +36,24 @@
             margin-top: 10px;
             font-size: 18px;
         }
-        .loader-text {
-            font-size: 24px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .text-animation {
+            color: red;
+            animation: zoomInOut 2s infinite;
+            white-space: nowrap; /* Asegura que el texto esté en una sola línea */
+        }
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
         }
     </style>
 </head>
 <body>
     <div class="loader-container">
-            <h1 class="loader-text">ESPERA ✋</h1>
+        <h1 class="text-animation">ESPERA ✋</h1>
         <div class="loader-bar">
             <div class="loader-bar-fill"></div>
         </div>
@@ -89,4 +96,3 @@
     </script>
 </body>
 </html>
-
