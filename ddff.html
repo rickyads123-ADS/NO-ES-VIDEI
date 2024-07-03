@@ -14,30 +14,47 @@
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
         }
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #3498db;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
+        .loader-container {
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .loader-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .loader-bar-fill {
+            height: 30px;
+            width: 0;
+            background-color: #3498db;
+            border-radius: 25px;
+            transition: width 30s linear;
         }
     </style>
 </head>
 <body>
-    <div class="loader"></div>
+    <div class="loader-container">
+        <h1>Cargando...</h1>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
 
     <script>
-        // Tiempo de espera en milisegundos (ejemplo: 30000ms = 30 segundos)
+        // Tiempo de espera en milisegundos (30 segundos)
         var tiempoDeEspera = 30000;
 
         // URL a la que se redirigirá después del tiempo especificado
         var urlRedireccion = "https://www.ejemplo.com";
 
+        // Animar la barra de carga
+        var loaderBarFill = document.querySelector('.loader-bar-fill');
+        loaderBarFill.style.width = '100%';
+
+        // Redirigir después del tiempo especificado
         setTimeout(function(){
             window.location.href = urlRedireccion;
         }, tiempoDeEspera);
