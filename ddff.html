@@ -58,19 +58,26 @@
             margin-top: 20px;
         }
         .ad-banner {
-            width: 100%;
-            height: 100px; /* Puedes ajustar la altura según el tamaño del anuncio */
+            width: 500px;
+            height: 400px; /* Tamaño del anuncio */
             background-color: #ccc; /* Placeholder color para el anuncio */
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 18px;
             color: #000;
+            text-align: center;
+        }
+        .ad-banner a {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
         .instruction {
-            font-size: 16px;
+            font-size: 18px;
             color: #000;
             margin-top: 10px;
+            font-weight: bold; /* Texto en negrita */
         }
     </style>
 </head>
@@ -86,9 +93,9 @@
         <p class="instruction">👇TOCA ESTA IMAGEN👇</p>
         <div class="ad-container">
             <div class="ad-banner">
-                <!-- Aquí puedes insertar el anuncio HTML -->
+                <!-- Aquí inserta el código HTML del anuncio -->
                 <a href="https://www.ejemplo.com">
-                    <img src="https://via.placeholder.com/300x100" alt="Anuncio">
+                    <img src="https://via.placeholder.com/500x400" alt="Anuncio">
                 </a>
             </div>
         </div>
