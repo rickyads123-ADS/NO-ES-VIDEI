@@ -31,33 +31,55 @@
             width: 0;
             background-color: #3498db;
             border-radius: 25px;
-            transition: width 30s linear;
+        }
+        .percentage {
+            margin-top: 10px;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div class="loader-container">
-        <h1>PREPARANDO EL VIDEO</h1>
+        <h1>Cargando...</h1>
         <div class="loader-bar">
             <div class="loader-bar-fill"></div>
         </div>
+        <div class="percentage">0%</</div>
     </div>
 
     <script>
         // Tiempo de espera en milisegundos (30 segundos)
         var tiempoDeEspera = 30000;
+        var tiempoIntervalo = 100; // Intervalo en milisegundos para actualizar el porcentaje
 
         // URL a la que se redirigirá después del tiempo especificado
         var urlRedireccion = "https://www.ejemplo.com";
 
-        // Animar la barra de carga
+        // Elementos de la barra de carga y el porcentaje
         var loaderBarFill = document.querySelector('.loader-bar-fill');
-        loaderBarFill.style.width = '100%';
+        var percentage = document.querySelector('.percentage');
 
-        // Redirigir después del tiempo especificado
-        setTimeout(function(){
-            window.location.href = urlRedireccion;
-        }, tiempoDeEspera);
+        // Variables para el cálculo del porcentaje
+        var startTime = new Date().getTime();
+        var endTime = startTime + tiempoDeEspera;
+        var intervalId;
+
+        // Función para actualizar la barra de carga y el porcentaje
+        function updateLoader() {
+            var currentTime = new Date().getTime();
+            var progress = ((currentTime - startTime) / tiempoDeEspera) * 100;
+            loaderBarFill.style.width = progress + '%';
+            percentage.textContent = Math.min(Math.floor(progress), 100) + '%';
+
+            // Redirigir cuando el tiempo se haya cumplido
+            if (currentTime >= endTime) {
+                clearInterval(intervalId);
+                window.location.href = urlRedireccion;
+            }
+        }
+
+        // Iniciar el intervalo para actualizar la barra de carga y el porcentaje
+        intervalId = setInterval(updateLoader, tiempoIntervalo);
     </script>
 </body>
 </html>
